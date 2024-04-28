@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package unary;
+
+service Unary{
+  rpc GetActionRL(State) returns (Action) {};
+  rpc TrainModelRL(TrainModelRequest) returns (Response) {};
+}
+
+message State {
+  double taskLength = 1;
+  double taskMaxLatency = 2;
+  double localCPU = 3;
+  double localMIPSTerm = 4;
+  double edgeCPUTerm = 5;
+  double cloudCPUTerm = 6;
+  double numberOfPes = 7;
+  double fileSize = 8;
+  double outputSize = 9;
+  double containerSize = 10;
+  double maxLatency = 11;
+}
+
+message TrainModelRequest {
+  State new_state = 1;
+  double reward = 2;
+  bool is_done = 3;
+}
+
+message Action {
+  int32 action = 1;
+}
+
+message Response {
+  string message = 1;
+}
