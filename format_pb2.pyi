@@ -41,10 +41,10 @@ class TrainModelRequest(_message.Message):
     def __init__(self, new_state: _Optional[_Union[State, _Mapping]] = ..., reward: _Optional[float] = ..., is_done: bool = ...) -> None: ...
 
 class Action(_message.Message):
-    __slots__ = ["action"]
+    __slots__ = ["reward"]
     ACTION_FIELD_NUMBER: _ClassVar[int]
-    action: int
-    def __init__(self, action: _Optional[int] = ...) -> None: ...
+    reward: int
+    def __init__(self, reward: _Optional[int] = ...) -> None: ...
 
 class Response(_message.Message):
     __slots__ = ["message"]
